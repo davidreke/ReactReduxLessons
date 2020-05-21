@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- get the below scripts from https://babeljs.io/setup#installation -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <!-- get the below scripts from the React website -->
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        
+    </div>
+
+    <!-- in this portion we will delete the handle functions and old inputs. -->
+    <script type="text/babel">
+        class App extends React.Component {
+            state = {
+                name: 'David',
+                age: 32,
+                counter: 0
+            }
+            handleChange = (e) => {
+                this.setState({name: e.target.value})
+            }
+            handleSubmit = (e) => {
+            {/* e.preventDefault stops the page from refereshing*/}
+                e.preventDefault();
+                console.log('form submitted', this.state.name)
+            }
+
+            render () {
+                return (
+                    <div className="app-content"> 
+                        <h1> Hello World </h1>
+                        <p>My name is {this.state.name} </p>
+                        {/*add form below this section */}
+                        <form onSubmit={this.handleSubmit}>
+                            {/* first use handle change to update name property but then */}
+                            <input type="text" onChange={this.handleChange} />
+                            <button>Submit</button> 
+                        </form>
+                        
+                    </div>
+                )
+            }
+        }
+        ReactDOM.render(<App />, document.getElementById('app'));
+    </script>
+</body>
+</html>
