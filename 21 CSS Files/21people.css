@@ -1,0 +1,15 @@
+/* 1 WE can llink to a specific component, but it will impact the entire code */
+/* 2 go to people.js to import*/
+body{
+    background-color: pink;
+    /* 6. react auto add vendor-prefixes (for other browsers)  ... view this through the heading->styling in the inspect tool*/
+    transition: all 1s;
+}
+
+/* 5 add css to forms, which are not in the people commponent */
+form{
+    background: blue;
+    padding: 20px;
+}
+
+/* 7. index.css covers everything automatically */
